@@ -4,6 +4,34 @@ def intersection(arrays):
     """
     # Your code here
 
+    cache = {}
+
+    result = []
+    # Loop through arrays
+    for array in arrays:
+
+        # Loop through subarray
+        for num in array:
+
+            # If num not in the cache
+            if num not in cache:
+
+                # Add to cache and set value to 1
+                cache[num] = 1
+            else:
+
+                # If already in cache, increment count by 1
+                cache[num] += 1
+
+    # Loop through key, value pairs in cache
+    for key, value in cache.items():
+
+        # If the value is found in every array
+        if value == len(arrays):
+
+            # Append key to results list
+            result.append(key)
+
     return result
 
 
